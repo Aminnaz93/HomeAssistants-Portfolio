@@ -12,4 +12,7 @@ def read_sensor():
 
 
 while True:
-    
+
+    read_sensor()
+
+    sleep(1)
