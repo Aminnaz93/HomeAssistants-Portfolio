@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+}
+
+h1{
+    color: white;
+    
+}
+
+p{
+    color: white;
+}
+
+.Contact a {
+  color: white;
+  text-decoration: none; /* valfritt: tar bort understrykning */
+}
+
+.Contact a:hover {
+  text-decoration: underline; /* valfritt: vid hover */
+}
+
+ul{
+    color:white
+}
