@@ -1,43 +1,115 @@
-body{
-    background-color: black;
+/* Reset & grundinställningar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1{
-    color: white;
-    text-align: center;
-    font-size: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  height: 260px;
-  border-radius: 20px; 
-  transition: transform 0.3s ease; /* smidig rörelse */
-  
+/* Navigationsmeny */
+.navbar {
+  background-color: #161b22;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-img:hover {
-  transform: scale(1.1); /* förstorar bilden lite */
+.logo {
+  font-size: 24px;
+  color: #61dafb;
+  font-weight: bold;
 }
 
-p{
-    color: white;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-.Contact a {
-  color: white;
-  text-decoration: none; /* valfritt: tar bort understrykning */
+.nav-links li a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-.Contact a:hover {
-  text-decoration: underline; /* valfritt: vid hover */
+.nav-links li a:hover {
+  color: #61dafb;
 }
 
-ul{
-    color:white
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1f2937, #0d1117);
+}
+
+.hero img {
+  width: 160px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.1);
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #61dafb;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #b1bac4;
+}
+
+/* Innehåll */
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.card {
+  background-color: #161b22;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(97, 218, 251, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #58a6ff;
+}
+
+.card p, .card ul {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.card ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #161b22;
+  font-size: 14px;
+  color: #8b949e;
+  border-top: 1px solid #30363d;
 }
