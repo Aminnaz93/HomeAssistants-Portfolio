@@ -18,6 +18,7 @@ img {
   height: 260px;
   border-radius: 20px; 
   transition: transform 0.3s ease; /* smidig rörelse */
+  
 }
 
 img:hover {
