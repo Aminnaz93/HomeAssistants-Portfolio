@@ -38,7 +38,15 @@
   </footer>
 
   <script>
-    const client = mqtt.connect('wss://test.mosquitto.org:8081');
+    const options = {
+      clientId: 'webClient_' + Math.random().toString(16).substr(2, 8),
+      clean: true,
+      connectTimeout: 4000,
+      reconnectPeriod: 1000,
+      protocol: 'wss'
+    };
+
+    const client = mqtt.connect('wss://mqtt-dashboard.com:8884/mqtt', options);
     const topic = 'Waterpump';
 
     client.on('connect', function () {
