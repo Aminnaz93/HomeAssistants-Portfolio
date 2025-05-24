@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Watering System</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Navigationsmeny -->
+  <nav class="navbar">
+    <div class="logo">Home Assistant</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Aboutme.html">About Me</a></li>
+      <li><a href="watering.html">Watering</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Kontrollpanel -->
+  <section class="content">
+    <div class="card">
+      <h2>Watering System Control</h2>
+      <p>Status: <span id="status">Disconnected</span></p>
+      <p>Received Message: <span id="feedback">--</span></p>
+      <button onclick="sendCommand('turn_on')">Turn ON Pump</button>
+      <button onclick="sendCommand('turn_off')">Turn OFF Pump</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Amin's Smart Home | All rights reserved.</p>
+  </footer>
+
+  <script>
+    const client = mqtt.connect('wss://test.mosquitto.org:8081');
+    const topic = 'Waterpump';
+
+    client.on('connect', function () {
+      document.getElementById('status').textContent = 'Connected';
+      client.subscribe(topic);
+    });
+
+    function sendCommand(command) {
+      client.publish(topic, command);
+    }
+
+    client.on('message', function (t, message) {
+      if (t === topic) {
+        document.getElementById('feedback').textContent = message.toString();
+      }
+    });
+
+    client.on('error', function (err) {
+      console.error('MQTT error:', err);
+      document.getElementById('status').textContent = 'Connection Error';
+    });
+  </script>
+
+</body>
+</html>
